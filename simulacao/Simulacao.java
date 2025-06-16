@@ -25,19 +25,38 @@ public class Simulacao {
         corsa.setMarca(marca);
         String modelo = JOptionPane.
                 showInputDialog("Digite a modelo: ");
+        
         corsa.setModelo(modelo);
-              
+        //Dados do Motorista
+        String nome = JOptionPane.
+                showInputDialog("Digite o nome do motorista: ");
+        String CNH = JOptionPane.
+                showInputDialog("Digite a CNH: ");
+        String CPF = JOptionPane.
+                showInputDialog("Digite o CPF: ");
+        String email = JOptionPane.
+                showInputDialog("Digite o e-mail: ");
+        String fone = JOptionPane.
+                showInputDialog("Digite o fone: ");
+        
+        Pessoa motorista = new Pessoa(CNH);
+        motorista.setNome(nome);
+        motorista.setCPF(CPF);
+        motorista.setFone(fone);
+        motorista.setEmail(email);
+        //Seta o CPF do motorista no veículo
+        corsa.setCPF(CPF);
         //Chamar os métodos
         corsa.ligar();
         int marcha = 1;
-        for(int i=10;i<150;i+=10){
+        for(int i=10;i<corsa.VELOCIDADE_MAXIMA;i+=10){
            corsa.acelerar();
            if(corsa.getVelocidade()%40 == 0){
              marcha = marcha + 1;
              corsa.mudarMarcha(marcha);             
            }    
         }   
-        for(int i=120;i>=0;i-=10){
+        for(int i=corsa.VELOCIDADE_MAXIMA;i>=0;i-=10){
           corsa.frear();
         }  
         corsa.setMarcha(1);

@@ -15,6 +15,12 @@ public class Veiculo {
    private int velocidade;
    private boolean ligado;
    private int marcha;
+   private String cor;
+   private String tipoCarro;
+   private String CPF;
+   //Constante
+   public int VELOCIDADE_MAXIMA = 150;
+   
 
    //Construtor da Classe
    public Veiculo(String placa){
@@ -35,7 +41,7 @@ public class Veiculo {
    }
    
    public void acelerar(){
-     if(this.velocidade+10 <= 120){  
+     if(this.velocidade+10 <= VELOCIDADE_MAXIMA){  
         this.velocidade = this.velocidade + 10;  
      }
      System.out.println("Velocidade "+this.velocidade);
@@ -170,6 +176,48 @@ public class Veiculo {
      */
     public void setMarcha(int marcha) {
         this.marcha = marcha;
+    }
+
+    /**
+     * @return the cor
+     */
+    public String getCor() {
+        return this.cor;
+    }
+
+    /**
+     * @param cor the cor to set
+     */
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    /**
+     * @return the tipoCarro
+     */
+    public String getTipoCarro() {
+        return this.tipoCarro;
+    }
+
+    /**
+     * @param tipoCarro the tipoCarro to set
+     */
+    public void setTipoCarro(String tipoCarro) {
+        this.tipoCarro = tipoCarro;
+    }
+
+    /**
+     * @return the CPF
+     */
+    public String getCPF() {
+        return this.CPF;
+    }
+
+    /**
+     * @param CPF the CPF to set
+     */
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
     }
    
            
