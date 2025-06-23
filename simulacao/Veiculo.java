@@ -1,4 +1,3 @@
-
 package simulacao;
 
 /**
@@ -6,66 +5,65 @@ package simulacao;
  * @author Alexandra
  */
 public class Veiculo {
-   //Variáveis - Atributos
-   private String placa;
-   private String marca;
-   private String modelo;
-   private int ano;
-   private float capacidade;
-   private int velocidade;
-   private boolean ligado;
-   private int marcha;
-   private String cor;
-   private String tipoCarro;
-   private String CPF;
-   //Constante
-   public int VELOCIDADE_MAXIMA = 150;
-   
+    //Variáveis - Atributos
 
-   //Construtor da Classe
-   public Veiculo(String placa){
-     this.placa = placa;
-     this.ligado = false;
-     this.velocidade = 0;
-     this.marcha = 0;
-   }
-   
-   public void ligar(){
-      this.ligado = true; 
-      System.out.println("Veículo ligado!");
-   }
+    private String placa;
+    private String marca;
+    private String modelo;
+    private int ano;
+    private float capacidade;
+    private int velocidade;
+    private boolean ligado;
+    private int marcha;
+    private String cor;
+    private String tipoCarro;
+    private String CPF;
+    //Constante
+    public int VELOCIDADE_MAXIMA = 150;
 
-   public void desligar(){
-      this.ligado = false;  
-      System.out.println("Veículo desligado!");
-   }
-   
-   public void acelerar(){
-     if(this.velocidade+10 <= VELOCIDADE_MAXIMA){  
-        this.velocidade = this.velocidade + 10;  
-     }
-     System.out.println("Velocidade "+this.velocidade);
-   }
-   
-   public void frear(){
-     if(this.velocidade-10 >= 0){  
-        this.velocidade = this.velocidade - 10;  
-     }
-     System.out.println("Velocidade "+this.velocidade);
-   }
-   
-   public void mudarMarcha(int marcha){
-       // 1 a 5 - Marchas 
-       // 6 (Ré)
-       if(marcha <=6){
-         this.marcha = marcha;
-         System.out.println("Marcha "+this.marcha);
-       }else{
-         System.out.println("Marcha inválida!");
-       }  
-   }
- 
-   
+    //Construtor da Classe
+    public Veiculo(String placa) {
+        this.placa = placa;
+        this.ligado = false;
+        this.velocidade = 0;
+        this.marcha = 0;
+    }
+
+    public void ligar() {
+        this.ligado = true;
+        System.out.println("Veículo ligado!");
+    }
+
+    public void desligar() {
+        this.ligado = false;
+        System.out.println("Veículo desligado!");
+    }
+
+    public void acelerar() {
+        if (this.velocidade + 10 <= VELOCIDADE_MAXIMA) {
+            this.velocidade = this.velocidade + 10;
+        }
+        System.out.println("Velocidade " + this.velocidade);
+    }
+
+    public void frear() {
+        if (this.velocidade - 10 >= 0) {
+            this.velocidade = this.velocidade - 10;
+        }
+        System.out.println("Velocidade " + this.velocidade);
+    }
+
+    public void mudarMarcha(int marcha) {
+        // 1 a 5 - Marchas 
+        // 6 (Ré)
+        if (marcha <= 6) {
+            this.marcha = marcha;
+            System.out.println("Marcha " + this.marcha);
+        } else {
+            System.out.println("Marcha inválida!");
+        }
+    }
+
     /**
      * @return the placa
      */
@@ -219,6 +217,11 @@ public class Veiculo {
     public void setCPF(String CPF) {
         this.CPF = CPF;
     }
-   
-           
+
+    @Override
+    public String toString() {
+        return "Placa: " + this.placa
+                + "\nMarca: " + this.marca;
+    }
+
 }
