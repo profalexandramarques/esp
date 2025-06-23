@@ -1,9 +1,10 @@
 package contabancaria;
-
 /**
  *
  * @author Alexandra
  */
+import java.util.ArrayList;
+
 public class Conta {
     //Atributos
     private int agencia;
@@ -11,17 +12,20 @@ public class Conta {
     private String CPF;
     private double saldo;    
     private double limite;
-    //1 -`Poupança, 
+    //1 - Poupança, 
     //2 - Conta Corrente
     //3 - Conta Salário    
-    private int tipoConta;
-    
+    private int tipoConta;    
+    private ArrayList<String> movimentacoes = 
+            new ArrayList<String>();
+ 
     //Construtor
     public Conta(int agencia, int numero){
       this.agencia = agencia;
       this.numero = numero;
       this.saldo  = 0;
       this.limite = 0;
+      movimentacoes.add("Conta aberta!");
     }
     //GET /SET
 
@@ -43,7 +47,7 @@ public class Conta {
      * @return the numero
      */
     public int getNumero() {
-        return numero;
+        return this.numero;
     }
 
     /**
@@ -107,6 +111,33 @@ public class Conta {
      */
     public void setTipoConta(int tipoConta) {
         this.tipoConta = tipoConta;
+    }
+    
+    //Depositar
+    public double depositar(double valor){
+        movimentacoes.add("Depósito de "+valor);
+        return this.saldo = this.saldo + valor; 
+       
+    }
+    //Saque da conta
+    public double sacar(double valor){
+      if ((this.saldo - valor) >=0){
+        this.saldo = this.saldo - valor;  
+        movimentacoes.add("Saque de "+valor);
+      }
+      else{
+           System.out.println("Saldo insuficiente!");
+      }
+      return saldo;
+    }
+    
+    //Extrato
+    public void gerarExtrato(){
+        System.out.println("=== Extrato ===");
+        for (int i=0;i<movimentacoes.size();i++){
+           System.out.println(movimentacoes.get(i)); 
+        }
+        System.out.println("Saldo Atual: "+this.saldo);
     }
     
 }
