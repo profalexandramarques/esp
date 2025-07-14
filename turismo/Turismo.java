@@ -13,6 +13,8 @@ public class Turismo {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Sistema de Turismo de Caxias do Sul");
+        Conexao conexao = new Conexao();
+        conexao.conectar();
     }
     
 }
