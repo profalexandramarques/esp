@@ -6,5 +6,5 @@
 * Tipos de Dados;
 * Orientação a Objetos;
 * ArrayList
-* Interface Gráfica
+* Interface Gráfica - Java.Swing
 * Banco de Dados
