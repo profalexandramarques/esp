@@ -1,0 +1,114 @@
+CREATE TABLE "categorias" (
+	"id_categoria"	INTEGER,
+	"nome"	TEXT NOT NULL,
+	"ativo"	TEXT DEFAULT 'A',
+	PRIMARY KEY("id_categoria" AUTOINCREMENT)
+);
+
+CREATE TABLE locais (
+	"id_local"	INTEGER,
+	"nome"	TEXT NOT NULL,
+	"endereco"	TEXT,
+	"fone"	TEXT,
+	"email"	TEXT,
+	"site"	TEXT,
+	"horario"	TEXT,
+	"valor"	REAL DEFAULT 0,
+	"id_categoria"	INTEGER,
+	PRIMARY KEY("id_local" AUTOINCREMENT),
+	FOREIGN KEY("id_categoria") REFERENCES "categorias"("id_categoria")
+);
+
+
+
+INSERT INTO categorias (id_categoria, nome, ativo) 
+VALUES (8, 'Tradicionalistas', 'A');
+
+INSERT INTO locais (id_local, nome, endereco, fone, email, site, horario, valor, id_categoria) 
+VALUES (2, 'SER Caxias', 'Marechal Floriano', '(54) 3536-7999', 'comunicacao@sercaxias.com.br', 'https://sercaxias.com.br/', NULL, 30, 4);
+
+INSERT INTO eventos (id_evento, nome, descricao, data, horario, id_local, status) 
+VALUES (1, 'Caxias X Anapolis', 'Jogo de Futebol', '13/07/2025', '19:00', 2, 'E');
+
+
+
+Select * from categorias
+
+--Todos as categorias ativas
+Select * from categorias
+where ativo = 'A'
+
+
+--Locais com valores entre 20 e 30 reais ordenados por nome
+Select nome, valor from locais
+where valor BETWEEN 20 and 30
+order by nome 
+
+--Seleciona todos os valores por ordem decrescente 
+Select nome, valor from locais
+order by valor desc 
+
+--Selecionar todos os locais com categorias
+Select loc.nome as nome_local, loc.valor, 
+loc.id_categoria, cat.nome as nome_categoria 
+from locais loc
+inner join categorias cat
+ON loc.id_categoria = cat.id_categoria
+order by loc.id_categoria, loc.nome
+
+--Selecionar todos os locais com ou sem categorias
+Select loc.nome as nome_local, loc.valor, 
+loc.id_categoria, cat.nome as nome_categoria 
+from locais loc
+LEFT JOIN categorias cat
+ON loc.id_categoria = cat.id_categoria
+order by loc.id_categoria, loc.nome
+
+
+Select eve.nome as nome_evento, eve.data, eve.horario, 
+eve.id_local, eve.status, loc.nome as nome_local
+from eventos eve
+LEFT JOIN locais loc
+ON eve.id_local = loc.id_local
+order by eve.nome
+
+--Seleciona todos os eventos e os locais e categorias
+Select eve.nome as nome_evento, eve.data, eve.horario, 
+eve.status, loc.nome as nome_local, cat.nome as nome_categoria
+from eventos eve
+LEFT JOIN locais loc
+ON eve.id_local = loc.id_local
+LEFT JOIN categorias cat
+ON loc.id_categoria = cat.id_categoria
+order by eve.nome
+
+--Eventos agendados e cancelados
+Select eve.nome as nome_evento, eve.data, eve.horario, 
+eve.status, loc.nome as nome_local
+from eventos eve
+LEFT JOIN locais loc
+ON eve.id_local = loc.id_local
+where status in ('A','E')
+
+
+--Calculos Média, maximo, minimo, contador
+Select clas.id_local, loc.nome, avg(clas.nota) as media,
+max(clas.nota) as maior_nota, min(clas.nota) as menor_nota,
+count(clas.nota) as total
+from classificacao clas
+left join locais loc
+on clas.id_local = loc.id_local
+--where clas.id_local = 6
+GROUP by clas.id_local, loc.nome
+order by 3 desc
+
+
+--Locais do roteiro
+Select rl.id_roteiro,rot.nome as nome_roteiro,
+rl.id_local, loc.nome as nome_local 
+from roteirolocais rl
+left join roteiros rot
+ON rl.id_roteiro = rot.id_roteiro
+left join locais loc
+on rl.id_local = loc.id_local
+
