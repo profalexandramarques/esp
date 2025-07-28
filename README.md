@@ -7,4 +7,5 @@
 * Orientação a Objetos;
 * ArrayList
 * Interface Gráfica - Java.Swing
-* Banco de Dados
+* Banco de Dados SQLite
+* Acesso a Banco de Dados
