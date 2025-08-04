@@ -179,6 +179,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         aluno.setFone(txtFone.getText());
         //Gênero
         String genero = cbGenero.getSelectedItem().toString();     
+       
         if (genero.equals("Masculino")){
             aluno.setGenero("M");
         } else if (genero.equals("Feminino")){
@@ -188,8 +189,11 @@ public class CadastroAluno extends javax.swing.JFrame {
         }        
         //Inserir aluno no banco de dados
         if (alunodao.inserir(aluno)) {           
+           int codigo = alunodao.ultimoCodigo(); 
            JOptionPane.showMessageDialog(null, 
-                   "Aluno inserido com sucesso!");
+                   "Aluno inserido com sucesso!"+" Código = "+
+                           String.valueOf(codigo));
+           
         }else{
             System.out.println("Erro ao inserir o aluno!");
         }

@@ -6,6 +6,8 @@ package escolamusica;
 import java.sql.Connection; //Conexao
 import java.sql.DriverManager; //Driver
 import java.sql.SQLException; //Exceção SQL
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Conexao {
    private Connection conexao = null;
@@ -37,6 +39,15 @@ public class Conexao {
      */
     public void setConexao(Connection conexao) {
         this.conexao = conexao;
+    }
+
+    //Fechar a conexão com o banco de dados
+    public void fecharConexao() {
+       try {
+           conexao.close();
+       } catch (SQLException e) {
+         e.printStackTrace();
+       }
     }
    
    
