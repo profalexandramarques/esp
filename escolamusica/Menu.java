@@ -30,7 +30,8 @@ public class Menu extends javax.swing.JFrame {
         mnCadastros = new javax.swing.JMenu();
         mnCadAlunos = new javax.swing.JMenuItem();
         mnListagem = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mnCadastroCursos = new javax.swing.JMenuItem();
+        mnListaCursos = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         mnAjuda = new javax.swing.JMenu();
@@ -79,13 +80,21 @@ public class Menu extends javax.swing.JFrame {
         });
         mnCadastros.add(mnListagem);
 
-        jMenuItem1.setText("Cursos");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mnCadastroCursos.setText("Cursos");
+        mnCadastroCursos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mnCadastroCursosActionPerformed(evt);
             }
         });
-        mnCadastros.add(jMenuItem1);
+        mnCadastros.add(mnCadastroCursos);
+
+        mnListaCursos.setText("Listagem de Cursos");
+        mnListaCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnListaCursosActionPerformed(evt);
+            }
+        });
+        mnCadastros.add(mnListaCursos);
 
         jMenuItem3.setText("Professores");
         jMenuItem3.setToolTipText("");
@@ -153,13 +162,22 @@ public class Menu extends javax.swing.JFrame {
 
     private void mnListagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnListagemActionPerformed
         // TODO add your handling code here:
-        Listagem listagem = new Listagem();
+        ListaAlunos listagem = new ListaAlunos();
         listagem.setVisible(true);
     }//GEN-LAST:event_mnListagemActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mnCadastroCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnCadastroCursosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        CadastroCurso cadCurso = new CadastroCurso();
+        cadCurso.setVisible(true);        
+    }//GEN-LAST:event_mnCadastroCursosActionPerformed
+
+    private void mnListaCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnListaCursosActionPerformed
+        // 
+        ListaCursos listagem = new ListaCursos();
+        listagem.setVisible(true);
+
+    }//GEN-LAST:event_mnListaCursosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,14 +217,15 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAluno;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenu mnAjuda;
     private javax.swing.JMenu mnArquivo;
     private javax.swing.JMenuItem mnCadAlunos;
+    private javax.swing.JMenuItem mnCadastroCursos;
     private javax.swing.JMenu mnCadastros;
+    private javax.swing.JMenuItem mnListaCursos;
     private javax.swing.JMenuItem mnListagem;
     private javax.swing.JMenuItem mnSair;
     private javax.swing.JMenuItem mnSobre;

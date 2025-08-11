@@ -6,8 +6,6 @@ package escolamusica;
 import java.sql.Connection; //Conexao
 import java.sql.DriverManager; //Driver
 import java.sql.SQLException; //Exceção SQL
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Conexao {
    private Connection conexao = null;

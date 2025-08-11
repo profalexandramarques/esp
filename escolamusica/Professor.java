@@ -1,7 +1,6 @@
 package escolamusica;
 
 /**
- *
  * @author Alexandra
  */
 public class Professor {
@@ -118,7 +117,13 @@ public class Professor {
 
     @Override
     public String toString() {
-        return "Professor{" + "id_aluno=" + id_aluno + ", nome=" + nome + ", cpf=" + cpf + ", fone=" + fone + ", emal=" + emal + ", genero=" + genero + ", ativo=" + ativo + '}';
+        return "Professor{" + "id_aluno=" + this.id_aluno + 
+                ", nome=" + this.nome + 
+                ", cpf=" + this.cpf + 
+                ", fone=" + this.fone + 
+                ", emal=" + this.emal + 
+                ", genero=" + this.genero + 
+                ", ativo=" + this.ativo + '}';
     }
 
 }

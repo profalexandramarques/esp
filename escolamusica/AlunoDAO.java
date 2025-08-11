@@ -81,7 +81,7 @@ public class AlunoDAO {
         return sucesso;
     }
     
-        //Consultar o último código de aluno cadastrado
+    //Consultar o último código de aluno cadastrado
     public int ultimoCodigo(){
         int codigo = 0;
         try {
